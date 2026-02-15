@@ -1,0 +1,203 @@
+/* ========================================
+   Effects - Confetti & Overlays
+   ======================================== */
+
+/* Win Overlay */
+.win-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.win-overlay.show {
+    opacity: 1;
+}
+
+.win-content {
+    background: var(--text-white);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.5) rotateZ(-10deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) rotateZ(0deg);
+        opacity: 1;
+    }
+}
+
+.winner-name {
+    font-size: 3rem;
+    font-family: 'Fredoka', sans-serif;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, #F59E0B, #EF4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.trophy {
+    font-size: 6rem;
+    animation: bounce 1s infinite;
+    margin: var(--spacing-lg) 0;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.final-score {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+}
+
+.win-content .btn {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-2xl);
+    font-size: 1.25rem;
+}
+
+/* Confetti Animation */
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+/* Loading Indicator */
+.loading-indicator {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #E5E7EB;
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Success ping effect */
+@keyframes successPing {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 20px rgba(16, 185, 129, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+.success-ping {
+    animation: successPing 0.6s ease;
+}
+
+/* Error shake */
+@keyframes errorShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+.error-shake {
+    animation: errorShake 0.4s ease;
+}
+
+/* Glow effect for active elements */
+.glow {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+    animation: glow 1.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+    }
+}
+
+/* Particle burst effect */
+.particle-burst {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    animation: burstOut 0.6s ease-out forwards;
+}
+
+@keyframes burstOut {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+    }
+}

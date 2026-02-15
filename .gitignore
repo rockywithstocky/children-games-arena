@@ -1,0 +1,10 @@
+# Vercel Configuration
+node_modules
+.DS_Store
+*.log
+brain/
+.system_generated/
+.gemini/
+*.webp
+*.png
+*.jpg
