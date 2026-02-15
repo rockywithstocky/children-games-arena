@@ -1,8 +1,15 @@
 {
-  "version": 2,
-  "name": "playlearn-games-platform",
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/$1" }
-  ]
+    "version": 2,
+    "name": "playlearn-games-platform",
+    "cleanUrls": true,
+    "rewrites": [
+        {
+            "source": "/game",
+            "destination": "/games/math-tug-of-war/game.html"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/$1"
+        }
+    ]
 }
